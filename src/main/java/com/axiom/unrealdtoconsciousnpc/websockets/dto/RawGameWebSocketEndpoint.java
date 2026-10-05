@@ -36,23 +36,25 @@ public class RawGameWebSocketEndpoint {
 
     @OnMessage
     public void onMessage(String message, Session session) {
-        logger.info("RAW WS: Received message from session {}: {}", session.getId(), message);
 
-        // Here you would parse your incoming message.
-        // For MVP, you're expecting something like "H_PRESSED" or a JSON string.
-        if (message.contains("H_PRESSED")) { // Simple check for now
-            logger.info("RAW WS: 'H' button press detected from client!");
-            // Optionally send a confirmation back to Unreal
-            try {
-                session.getBasicRemote().sendText("Server received: H_PRESSED confirmation!");
-            } catch (IOException e) {
-                logger.error("Error sending H_PRESSED confirmation: {}", e.getMessage());
-            }
+        logger.info(
+                "RAW WS: Received message from session {}: {}",
+                session.getId(),
+                message
+        );
+
+        try {
+            session.getBasicRemote().sendText("HELLO PLAYER");
+
+            logger.info(
+                    "RAW WS: Sent message back to Unreal: HELLO PLAYER"
+            );
+        } catch (IOException e) {
+            logger.error(
+                    "RAW WS: Error sending message back to Unreal: {}",
+                    e.getMessage()
+            );
         }
-        // You can deserialize JSON here if your Unreal client sends JSON strings
-        // ObjectMapper mapper = new ObjectMapper();
-        // GameStateUpdateMessage update = mapper.readValue(message, GameStateUpdateMessage.class);
-        // logger.info("Parsed DTO: {}", update.getPlayerId());
     }
 
     @OnClose
