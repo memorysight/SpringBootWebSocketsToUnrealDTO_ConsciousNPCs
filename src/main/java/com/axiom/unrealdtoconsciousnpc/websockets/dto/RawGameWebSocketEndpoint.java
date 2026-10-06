@@ -34,6 +34,7 @@ public class RawGameWebSocketEndpoint {
         }
     }
 
+
     @OnMessage
     public void onMessage(String message, Session session) {
 
