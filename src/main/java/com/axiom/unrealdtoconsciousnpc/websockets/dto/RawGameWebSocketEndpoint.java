@@ -25,13 +25,10 @@ public class RawGameWebSocketEndpoint {
 
     @OnOpen
     public void onOpen(Session session) {
-        logger.info("RAW WS: Connection opened for session: {}", session.getId());
-        // Optional: Send a welcome message back to the client
-        try {
-            session.getBasicRemote().sendText("Welcome to the raw game WebSocket!");
-        } catch (IOException e) {
-            logger.error("Error sending welcome message: {}", e.getMessage());
-        }
+        logger.info(
+                "RAW WS: Connection opened for session: {}",
+                session.getId()
+        );
     }
 
 
