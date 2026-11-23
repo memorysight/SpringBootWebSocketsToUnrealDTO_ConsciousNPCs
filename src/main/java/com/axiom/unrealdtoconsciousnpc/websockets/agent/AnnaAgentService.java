@@ -43,7 +43,7 @@ public class AnnaAgentService {
                 - Do not greet the player unless it feels natural.
                 - React to what happened rather than explaining the game mechanic.
 
-                Gameplay event:  
+                Gameplay event:   
                 %s
                 """.formatted(gameEvent);
 
