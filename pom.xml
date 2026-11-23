@@ -50,7 +50,7 @@
         <dependency>
             <groupId>com.openai</groupId>
             <artifactId>openai-java</artifactId>
-            <version>4.74.0</version>
+            <version>4.70.0</version>
         </dependency>
 
 
